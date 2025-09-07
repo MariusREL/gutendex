@@ -1,0 +1,10 @@
+.home {
+  padding: 2rem;
+}
+
+.welcomeMessage {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 4rem;
+}

@@ -1,0 +1,7 @@
+.category {
+  padding: 2rem;
+}
+
+.category h2 {
+  text-transform: capitalize;
+}

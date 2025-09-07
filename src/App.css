@@ -1,0 +1,9 @@
+main {
+  padding: 2rem;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding-top: 120px;
+  }
+}
