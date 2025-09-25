@@ -10,19 +10,7 @@ import { FaHeart } from "react-icons/fa";
 const Header = ({ theme, toggleTheme }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const isMobile = windowWidth <= 1320;
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -39,20 +27,16 @@ const Header = ({ theme, toggleTheme }) => {
         <SearchBar />
       </div>
       <nav className={styles.nav}>
-        {isMobile ? (
-          <button onClick={toggleModal} className={styles.menuButton}>
-            Categories
-          </button>
-        ) : (
-          <CategoryMenu />
-        )}
+        <button onClick={toggleModal} className={styles.menuButton}>
+          Categories
+        </button>
         <Link to="/favorites" className={styles.favLink}>
           <FaHeart />
           <span>Favorites</span>
         </Link>
         <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       </nav>
-      {isMobile && isModalOpen && (
+      {isModalOpen && (
         <Modal onClose={toggleModal}>
           <CategoryMenu isMobile={true} onLinkClick={toggleModal} />
         </Modal>
